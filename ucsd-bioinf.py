@@ -2,6 +2,8 @@
 # Course: UCSD's "Biology Meets Programming: Bioinformatics for Beginners"
 
 
+# Week 1: Where in the Genome Does Replication Begin? (Part 1)
+
 # PatternCount outputs the number of times a certain pattern appears in a string
 def PatternCount(text, pattern):
 	count = 0
@@ -50,3 +52,14 @@ def PatternMatching(pattern, genome):
         if gen == pattern:
             match.append(i)
     return match
+
+
+# Week 2: Where in the Genome Does Replication Begin? (Part 2)
+
+def SymbolArray(Genome, symbol):
+	array = {}
+	n = len(Genome)
+	ExtendedGenome = Genome + Genome[0:n//2]
+	for i in range(n):
+		array[i] = PatternCount(ExtendedGenome[i:i+(n//2)], symbol)
+	return array
